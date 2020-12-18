@@ -1,3 +1,3 @@
 # redesigned-adventure-localstorage
 
-sample app using local storage
+simple movie app using local storage
