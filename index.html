@@ -24,7 +24,7 @@
 
   <body>
     <div class="container">
-      <div class="row">
+      <div class="row mt-3">
         <div class="col-sm-4">
           <form id="movie-form">
             <div class="mb-3">
@@ -40,50 +40,13 @@
           </form>
         </div>
 
-        <div class="col-sm-8" id="buttons-display">
+        <div class="col-sm-8 mt-4" id="buttons-display">
           <!-- <button type="submit" class="btn btn-info">Frozen</button> -->
         </div>
       </div>
     </div>
 
-    <script type="text/javascript">
-      $(document).ready(function() {
-        //dom variables
-              
-        //javascript variables
-        var moviesArray = []; //"frozen", "frozen2", "mulan", "jaws"
+    <script src="./scripts.js"></script>
 
-        function init(){
-            var moviesFromStorage = JSON.parse(localStorage.getItem("moviesArray"));
-            if(moviesFromStorage !== null) {
-                moviesArray = moviesFromStorage;
-            }
-            renderButtons();
-        }
-
-        //function definitions
-        function renderButtons(){
-        $("#buttons-display").empty();
-            for(var i = 0; i < moviesArray.length; i++) {
-                var button = $("<button>").addClass("btn btn-info").text(moviesArray[i]);
-                $("#buttons-display").append(button);
-            }
-        }
-
-        //function calls
-        init();
-
-        //event listeners
-        $("#movie-form").on("submit", function(e){
-            //always prevent default on a form
-            e.preventDefault();
-            console.log("form submitted");
-            var newMovie = $("#movie-name").val();
-            moviesArray.push(newMovie);
-            localStorage.setItem("moviesArray", JSON.stringify(moviesArray));
-            renderButtons()
-        })
-      });
-    </script>
   </body>
 </html>
